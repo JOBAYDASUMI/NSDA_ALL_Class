@@ -1,0 +1,102 @@
+
+{% extends 'basePage.html' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h3>Using CSS to style an HTML Form</h3>
+
+<div>
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label for="gender_type">Select User</label>
+    <select id="gender_type" name="customuser_id" required>
+      {% for i in All_User %}
+        
+      
+      <option value="{{i.id}}">{{i.username}}-{{i.user_type}}</option>
+      {% endfor %}
+    </select>
+    <label for="designation">Designation</label>
+    <input type="text" id="designation" name="designation" placeholder="Your designation..">
+
+    <label for="cotact_number">Cotact Number</label>
+    <input type="text" id="cotact_number" name="cotact_number" placeholder="Your cotact_number..">
+
+    <label for="career_summary">Career_Summary</label>
+    <input type="text" id="career_summary" name="career_summary" placeholder="Your career_summary..">
+
+    <label for="profile_pic">Profile_pic</label>
+    <input type="file" id="profile_pic" name="profile_pic" placeholder="Your profile_pic..">
+
+    
+
+    <label for="gender">Select Gender</label>
+    <select id="gender" name="gender_type">
+      {% for i in All_User %}
+        
+      
+      <option value="i.id">{{i.username}}-{{i.user_type}}</option>
+      {% endfor %}
+    </select>
+
+    <label for="linkedin_URL">Linkedin_URL</label>
+    <input type="text" id="linkedin_URL" name="linkedin_URL" placeholder="Your linkedin_URL..">
+
+    <label for="facebook_URL">Facebook_URL</label>
+    <input type="text" id="facebook_URL" name="facebook_URL" placeholder="Your facebook_URL..">
+
+    <label for="instagram_URL">Instagram_URL</label>
+    <input type="text" id="instagram_URL" name="instagram_URL" placeholder="Your instagram_URL..">
+
+    <label for="github_URL">Github_URL</label>
+    <input type="text" id="github_URL" name="github_URL" placeholder="Your github_URL..">
+
+    
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html> 
+{% endblock body %}
+
+
+
+
